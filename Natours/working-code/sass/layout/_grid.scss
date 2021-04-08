@@ -1,0 +1,46 @@
+.row{
+  max-width: $grid-width;
+  margin: 0 auto; //center row in viewport (center block element in another block element) since auto, left and right are the same
+  
+  &:not(:last-child){ //dont want last element to have margin-botton
+    margin-bottom: $gutter-vertical; //bottom gutter
+  }
+  
+  @include clearfix;
+
+  [class^="col-"]{
+    float: left; //float column to left side
+    // height: 3rem; //dictate height of box
+    // line-height: 3rem; //hack to center text vertically 
+    // text-align: center; //align text horizontally to center
+
+    &:not(:last-child){ //dont want last element to have margin-right
+      margin-right: $gutter-horizontal; //right gutter
+    }
+  }
+  
+  .col-1-of-2 { 
+    width: calc((100% - #{$gutter-horizontal})/2);//make calc where you can mix units. Units need to be contained in #{}
+  }
+
+  .col-1-of-3{
+    width: calc((100% - #{$gutter-horizontal}*2)/3);
+  }
+
+  .col-2-of-3{
+    width: calc(((100% - #{$gutter-horizontal}*2)/3 * 2) + #{$gutter-horizontal});
+  }
+
+  .col-1-of-4{
+    width: calc((100% - #{$gutter-horizontal}*3)/4);
+  }
+
+  .col-2-of-4{
+    width: calc(((100% - #{$gutter-horizontal}*3)/4 * 2) + #{$gutter-horizontal});
+  }
+
+  .col-3-of-4{
+    width: calc(((100% - #{$gutter-horizontal}*3)/4 * 3) + #{$gutter-horizontal}*2);
+  }
+
+}
