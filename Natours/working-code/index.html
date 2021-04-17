@@ -243,8 +243,8 @@
           <!--attributes autoplay muted loop so i -->
           <video class="bg-video__content" autoplay muted loop>
             <!-- Two types of the same video to ensure they work on all browsers-->
-            <source src="img/video.mp4" type="video/mp4">
-            <source src="img/video.webm" type="video/webm">
+            <source src="img/video.mp4" type="video/mp4" />
+            <source src="img/video.webm" type="video/webm" />
             <!--In case you can't play-->
             Your brower is not supported!
           </video>
@@ -256,9 +256,12 @@
 
         <div class="row">
           <div class="story">
-
             <figure class="story__shape">
-              <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img">
+              <img
+                src="img/nat-8.jpg"
+                alt="Person on a tour"
+                class="story__img"
+              />
               <figcaption class="story__caption">Mary Smith</figcaption>
             </figure>
 
@@ -273,15 +276,17 @@
                 animi maiores, quas praesentium deleniti?
               </p>
             </div>
-
           </div>
         </div>
 
         <div class="row">
           <div class="story">
-
             <figure class="story__shape">
-              <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img">
+              <img
+                src="img/nat-9.jpg"
+                alt="Person on a tour"
+                class="story__img"
+              />
               <figcaption class="story__caption">Jack Wilson</figcaption>
             </figure>
 
@@ -296,7 +301,6 @@
                 animi maiores, quas praesentium deleniti?
               </p>
             </div>
-            
           </div>
         </div>
 
@@ -310,25 +314,67 @@
         <div class="row">
           <div class="book">
             <div class="book__form">
-
               <div class="u-margin-bottom-medium">
-                <h2 class="heading-secondary">
-                  Start Booking Now
-                </h2>
+                <h2 class="heading-secondary">Start Booking Now</h2>
               </div>
 
               <form action="#" class="form">
                 <div class="form__group">
                   <!-- REQUIRED MEANS YOU CANT SUBMIT FORM WITHOUT INPUT. ID TIES TO LABEL'S FOR ATTRIBUTE-->
-                  <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+                  <input
+                    type="text"
+                    class="form__input"
+                    placeholder="Full Name"
+                    id="name"
+                    required
+                  />
                   <label for="name" class="form__label">Full name</label>
-                </div>   
-                
-                <div class="form__group">
-                  <input type="email" class="form__input" placeholder="Email Address" id="email" required>
-                  <label for="email" class="form__label">Email Address</label>
-                </div>   
+                </div>
 
+                <div class="form__group">
+                  <input
+                    type="email"
+                    class="form__input"
+                    placeholder="Email Address"
+                    id="email"
+                    required
+                  />
+                  <label for="email" class="form__label">Email Address</label>
+                </div>
+
+                <div class="form__group u-margin-bottom-medium">
+                  <div class="form__radio-group">
+                    <!--input type radio can only have one selected, so name has to be same-->
+                    <!--input type radio cannot be styled by css, so convention is to make disappear and make own button-->
+                    <input
+                      type="radio"
+                      class="form__radio-input"
+                      id="small"
+                      name="size"
+                    />
+                    <label for="small" class="form__radio-label">
+                      <span class="form__radio-button"></span>
+                      Small tour group
+                    </label>
+                  </div>
+
+                  <div class="form__radio-group">
+                    <input
+                      type="radio"
+                      class="form__radio-input"
+                      id="large"
+                      name="size"
+                    />
+                    <label for="large" class="form__radio-label">
+                      <span class="form__radio-button"></span>
+                      Large tour group
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form__group">
+                  <button class="btn btn--green">Next Step &rarr;</button>
+                </div>
               </form>
             </div>
           </div>
