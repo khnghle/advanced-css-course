@@ -1,7 +1,71 @@
-@mixin clearfix { //apend a pusudo element which will clear the floats
-  &::after{
-    content: "";//empty cause you dont want to see it
+@mixin clearfix {
+  //apend a pusudo element which will clear the floats
+  &::after {
+    content: ''; //empty cause you dont want to see it
     display: table;
     clear: both;
   }
 }
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+  MEDIA QUERY MANAGER
+
+  0 - 600px : Phone
+  600 - 900px : Tablet portrait
+  900 - 1200px : Tablet landscape
+  [1200 - 1800] : where our normal styles apply
+  1800px + : Big Desktop
+  
+*/
+
+// @mixin respond-phone {
+//   @media (max-width : 600px) {@content}
+// }
+
+/*
+  $breakpoint argument choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+*/
+
+//1 em = 16 px
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      //900 px/16
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      //1200px/16
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      //1800px/16
+      @content;
+    }
+  }
+}
+
+

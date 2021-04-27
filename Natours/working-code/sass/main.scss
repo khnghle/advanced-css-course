@@ -23,12 +23,12 @@ Dark green: #28b485
 @import "components/bg-video";
 @import "components/book";
 @import "components/form";
+@import "components/popup";
 
-
-
-
+@import "layout/navigation";
 @import "layout/header";
 @import "layout/grid";
+@import "layout/footer";
 
 @import "pages/home";
 
