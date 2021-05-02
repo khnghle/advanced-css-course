@@ -18,6 +18,10 @@
     display: block;
     transition: all .3s;
 
+    @include respond(tab-port){
+      width: 100%;
+    }
+
     &:focus{
       //Gets rid of hover state
       outline: none;
@@ -67,6 +71,11 @@
     width: 49%;
     //so it could be in same line
     display: inline-block;
+
+    @include respond(tab-port){
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   //make default button disappear
