@@ -223,7 +223,10 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  //for tablets where you cannot hover. So this applies for screen on a certain size AND screens where there isnt a hover (touch device) 
+  //hover: hover is the opposite where you can hover 
+  @media only screen and (max-width: 56.25em), only screen and (hover:none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;

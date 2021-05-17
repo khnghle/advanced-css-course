@@ -38,3 +38,9 @@ body {
     padding: 0;
   }
 }
+
+//When user highlights text, adding our own special 
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

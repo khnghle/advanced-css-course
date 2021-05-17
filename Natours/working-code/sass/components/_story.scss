@@ -1,99 +1,102 @@
 .story {
-  width: 75%;
-  //horizontal alignment of div
-  margin: 0 auto;
-  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
-  //so the card has some opacity so you can see background video
-  background-color: rgba($color-white,.6);
-  border-radius: 3px;
-  padding: 6rem;
-  padding-left: 9rem;
-  font-size: $default-font-size;
-  transform: skewX(-12deg);
+	width: 75%;
+	//horizontal alignment of div
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+	//so the card has some opacity so you can see background video
+	background-color: rgba($color-white, 0.6);
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
 
-  @include respond(tab-port){
-    width: 100%;
-    padding: 4rem;
-    padding-left: 7rem;
-  }
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
 
-  @include respond(phone){
-    transform: skewX(0);
-  }
+	@include respond(phone) {
+		transform: skewX(0);
+	}
 
-  &__shape {
-    width: 15rem;
-    height: 15rem;
-    float: left;
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		float: left;
 
-    //Shape-outside: Radius (50% half the width/height) at center of circle (50% 50%)
-    //May only work on Safari and Chrome
-    //Works if it is float with width and height property
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
+		//Shape-outside: Radius (50% half the width/height) at center of circle (50% 50%)
+		//May only work on Safari and Chrome
+		//Works if it is float with width and height property
+    border-radius: 50%;
 
-    //Make element into a circle
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+		//Move shape to the left
+		//CSS you cant have 2 transform properties going on at once from two different selectors
+		transform: translateX(-3rem) skewX(12deg);
+		//for some reason you see a small cut out of the image past the bounds, this fixes it.
+		position: relative;
+		overflow: hidden;
 
-    //Move shape to the left
-    //CSS you cant have 2 transform properties going on at once from two different selectors
-    transform: translateX(-3rem) skewX(12deg);
-    //for some reason you see a small cut out of the image past the bounds, this fixes it.
-    overflow: hidden;
-    position: relative;
+		@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+			//Make element into a circle
+			-webkit-clip-path: circle(50% at 50% 50%);
+			clip-path: circle(50% at 50% 50%);
+			-webkit-shape-outside: circle(50% at 50% 50%);
+			shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+		}
 
-    @include respond(phone){
-      transform: translateX(-3rem) skewX(0);
-    }
-  }
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
+	}
 
-  &__img {
-    height: 100%;
-    //center image
-    transform: translateX(-4rem) scale(1.4);
-    //When you get weird issues with image transition, throw in backface-visiblity
-    backface-visibility: hidden;
-    transition: all 0.5s;
-  }
+	&__img {
+		height: 100%;
+		//center image
+		transform: translateX(-4rem) scale(1.4);
+		//When you get weird issues with image transition, throw in backface-visiblity
+		backface-visibility: hidden;
+		transition: all 0.5s;
+	}
 
-  &__text {
-    transform: skewX(12deg);
+	&__text {
+		transform: skewX(12deg);
 
-    @include respond(phone){
-      transform: skewX(0);
-    }
-    
-  }
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+	}
 
-  &__caption {
-    //Makes text go on top of each other
-    position: absolute;
-    //Center text
-    top: 50%;
-    left: 50%;
-    //text starts a bit lower
-    transform: translate(-50%, 20%);
-    color: $color-white;
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    text-align: center;
-    opacity: 0;
-    transition: all 0.5s;
+	&__caption {
+		//Makes text go on top of each other
+		position: absolute;
+		//Center text
+		top: 50%;
+		left: 50%;
+		//text starts a bit lower
+		transform: translate(-50%, 20%);
+		color: $color-white;
+		text-transform: uppercase;
+		font-size: 1.7rem;
+		text-align: center;
+		opacity: 0;
+		transition: all 0.5s;
 
-    //When it transform, the text shakes a bit, so this takes away the shake
-    backface-visibility: hidden;
-  }
+		//When it transform, the text shakes a bit, so this takes away the shake
+		backface-visibility: hidden;
+	}
 
-  &:hover &__caption {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+	&:hover &__caption {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
 
-  &:hover &__img {
-    transform: translateX(-4rem) scale(1);
+	&:hover &__img {
+		transform: translateX(-4rem) scale(1);
 
-    //css filter properites
-    filter: blur(3px) brightness(80%);
-  }
+		//css filter properites
+		filter: blur(3px) brightness(80%);
+	}
 }
